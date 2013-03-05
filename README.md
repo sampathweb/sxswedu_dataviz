@@ -1,2 +1,4 @@
-sxswedu_dataviz
-===============
+javascript-sdk
+==============
+
+inBloom JavaScript SDK
