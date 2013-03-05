@@ -50,7 +50,7 @@ var color = d3.scale.quantize()
     .range(d3.range(11).map(function(d) { return "q" + d + "-11"; }));
 
 var svg = d3.select("body").selectAll("svg")
-    .data(d3.range(2009, 2013))
+    .data(d3.range(2011, 2013))
   .enter().append("svg")
     .attr("width", width)
     .attr("height", height)
@@ -95,19 +95,20 @@ d3.csv("dji.csv", function(error, csv) {
 */
 d3.csv(
 //"dji.csv",
-"dji_2010.csv",
-//"student_attendance_sample.csv",
+//"dji_2010.csv",
+//"../data/student_attendance_sample.csv",
+"student_attendance_short.csv",
 		function(error, csv) {			
 			if (error)
 				document.write("CSV read error: " + error);
 			var data = d3.nest()
 				.key(function(d) { return d.Date; })
-				.rollup(function(d) { return (d[0].Close - d[0].Open) / d[0].Open;})
+				.rollup(function(d) { return d[0].attendance;})
 				.map(csv);
 			rect.filter(function(d) { return d in data; })
 				.attr("class", function(d) { return "day " + color(data[d]); })
 				.select("title")
-				.text(function(d) { return d + ": " + percent(data[d]); });
+				.text(function(d) { return d + ": " + data[d]; });
 		}
 	);
 
