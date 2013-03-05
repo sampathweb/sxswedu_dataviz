@@ -111,6 +111,21 @@ app.get('/schools', requireToken(), function(req, res) {
   })
 });
 
+// Get Attendace list
+app.get('/attendances', requireToken(), function(req, res) {
+  SLC_app.api("/attendances", "GET", req.session.tokenId, {}, {}, function (data) {
+    res.json(data);
+  })
+});
+
+// Get Attendace list
+app.get('/grades', requireToken(), function(req, res) {
+  SLC_app.api("/grades", "GET", req.session.tokenId, {}, {}, function (data) {
+    res.json(data);
+  })
+});
+
+
 /*
   POST Method
   Following example shows how to post attendance event for student on SLC server.
