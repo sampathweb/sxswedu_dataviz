@@ -10,7 +10,13 @@ Help educators see the relationships between student absences and intervene earl
 Reduce student unexplained absences and drop out rate.
 
 ##Technology Stack:
-InBloom Data API
-Authentication via InBloom OAuth2
-Python - Flask web framework
-Javascript - D3 viz API
+* InBloom Data API
+* Authentication via InBloom OAuth2
+* Python - Flask web framework
+* Javascript - D3 viz API
+
+##Created By:
+* Ramesh Sampath (@sampathweb)
+* Surinderjeet Singh (@greyhame)
+
+###Thanks to InBloom.org for hosting the codeathon and helping us with the Data APIs

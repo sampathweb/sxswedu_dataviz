@@ -1,3 +1,6 @@
+# Main Python file that connects to InBloom and fetches Data
+# Once all the data is retrieved, index.html is rendered for display
+#
 from flask import Flask, redirect, url_for, request, jsonify, render_template
 import requests
 import numpy as np
