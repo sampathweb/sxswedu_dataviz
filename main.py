@@ -10,14 +10,14 @@ import simplejson as json
 params = {
     'base_url': 'https://api.sandbox.slcedu.org',
     'redirect_uri' : 'http://127.0.0.1:5000/oauth',
-    'client_id' : 'fUkLaEnwOr',
-    'client_secret': 'aVN7wa00MoPgNRLT2EHeDp2t0vqfyO2foxRczxLJzowheNI3',
+    'client_id' : 'CLIENT ID',
+    'client_secret': 'SECRET KEY',
     'oauth_code': '',
     'req_code_url': '/api/oauth/authorize',
     'req_token_url': '/api/oauth/token'
     }
 
-SECRET_KEY = 'SWSXEDU_aVN7wa00MoPgNRLT2EHeDp2t0vqfyO2foxRczxLJzowheNI3'
+SECRET_KEY = 'SWSXEDU_SECRET_KEY'
 DEBUG = True
 
 # setup flask
