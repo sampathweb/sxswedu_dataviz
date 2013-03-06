@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>  
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<script>
+var student_attendances = ["student_attendance_1.csv", "student_attendance_2.csv", "student_attendance_3.csv"];
+
+var selectHtml = '<select name="students" multiple>';
+$.each( student_attendances, function( index, value ) {
+    var option = value;    
+    selectHtml += '<option value="' + option + '">' + option + '</option>';
+});
+selectHtml += '</select>';
+
+$('body').html( selectHtml );
+</script>
+
+<div id="students"> </div>
+</body>

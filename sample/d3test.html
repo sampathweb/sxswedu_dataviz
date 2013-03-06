@@ -18,8 +18,8 @@ body {
   stroke-width: 2px;
 }
 
-.RdYlGn .red{fill:rgb(255,0,0)}
-.RdYlGn .green{fill:rgb(0,255,0)}
+.RdYlGn .absent{fill:rgb(255,0,0)}
+.RdYlGn .present{fill:rgb(0,255,0)}
 
 .RdYlGn .q0-11{fill:rgb(165,0,38)}
 .RdYlGn .q1-11{fill:rgb(215,48,39)}
@@ -39,6 +39,8 @@ body {
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
+var student_attendances = ["student_attendance_1.csv", "student_attendance_2.csv", "data/student_attendance_3.csv"];
+
 var width = 960,
     height = 136,
     cellSize = 17; // cell size
@@ -52,7 +54,7 @@ var color = d3.scale.quantize()
     .domain([-.05, .05])
     .range(d3.range(11).map(function(d) { return "q" + d + "-11"; }));
 
-var colorNew = [ "red", "green"];
+var colorNew = [ "absent", "present"];
 	
 var svg = d3.select("body").selectAll("svg")
     .data(d3.range(2011, 2013))
@@ -60,7 +62,6 @@ var svg = d3.select("body").selectAll("svg")
     .attr("width", width)
     .attr("height", height)
     .attr("class", "RdYlGn")
-	//.attr("class", "RGB")	
   .append("g")
     .attr("transform", "translate(" + ((width - cellSize * 53) / 2) + "," + (height - cellSize * 7 - 1) + ")");
 
@@ -99,11 +100,16 @@ d3.csv("dji.csv", function(error, csv) {
     .rollup(function(d) { return (d[0].Close - d[0].Open) / d[0].Open; })
     .map(csv);
 */
+
+/*
+for (var i=0;i<cars.length;i++)
+{ 
+document.write(cars[i] + "<br>");
+}
+*/
+
 d3.csv(
-//"dji.csv",
-//"dji_2010.csv",
-//"../data/student_attendance_sample.csv",
-"student_attendance_short.csv",
+"student_attendance_1.csv",
 		function(error, csv) {
 			if (error)
 				document.write("CSV read error: " + error);
@@ -130,6 +136,9 @@ function monthPath(t0) {
       + "H" + w1 * cellSize + "V" + (d1 + 1) * cellSize
       + "H" + (w1 + 1) * cellSize + "V" + 0
       + "H" + (w0 + 1) * cellSize + "Z";
+}
+
+function addStudent(csv) {
 }
 
 d3.select(self.frameElement).style("height", "2910px");
