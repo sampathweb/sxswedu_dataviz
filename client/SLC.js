@@ -52,7 +52,7 @@
 			client_secret = clientSecret;
 			oauth_URI = oauthURI;
 			api_version = apiVersion || "v1";
-		
+
 
 			/**
 		     * This method returns SLC login URL
@@ -81,11 +81,11 @@
 						if (response.statusCode) {
 							errorMessage += response.statusCode;
 						}
-						
+
 						if (body) {
 							errorMessage += " " + JSON.parse(body);
 						}
-						
+
 						if (callback !== null) {
 							callback(errorMessage);
 							return;
@@ -111,7 +111,7 @@
 		     * OAuth
 		     *
 		     * @access public
-		     * @param params 	
+		     * @param params
 		     * @param callback {Function}   the callback function to handle the response
 		     * @return api access token
 		     */
