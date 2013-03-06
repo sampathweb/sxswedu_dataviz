@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<link href="/templates/bootstrap.css" rel="stylesheet" media="screen">
+</head>
+<script>
+var data = []
+{% for student in students_attend %}
+  data = data.concat({{ student|tojson|safe }})
+{% endfor %}
+</script>
+<frameset cols="20%,80%">
+  <frame name="students" src="/templates/students.html">
+  <frame name="attendance" src="/templates/attendance.html">
+</frameset>

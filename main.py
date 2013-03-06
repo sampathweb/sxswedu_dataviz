@@ -33,7 +33,7 @@ def index():
 
 @app.route('/oauth')
 def oauth():
-    params['oauth_cde'] = request.args.get('code')
+    params['oauth_code'] = request.args.get('code')
     if request.args.get('code') == None:
         return redirect(url_for('index'))
     else:
@@ -98,6 +98,10 @@ def oauth():
 #    students_col = list(students_atd[0].keys())
 #    students_atd_df = pd.DataFrame(students_atd, columns=students_col)
 #    students_atd_df.to_csv('student_attendance.csv', index=False)
-    return render_template('swsxedu_attend_link.html', students_attend=students_atd)
+    return render_template('main.html', students_attend=students_atd)
+
+@app.route('/templates/<iframe_html>')
+def iframe(iframe_html):
+    return render_template(iframe_html)
 
 app.run()

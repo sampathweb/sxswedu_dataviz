@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<script>
+var student_attendances = d3.nest()
+                .key(function(d) { return d.studentUniqueStateId; })
+                .rollup(function(d) { return [d[0].studentUniqueStateId, d[0].firstName + ' ' + d[0].lastSurname]; })
+                .map(top.data);
+//["student_attendance_1.csv", "student_attendance_2.csv", "student_attendance_3.csv"];
+
+var selectHtml;
+  selectHtml = '<h2>List of Students</h2>';
+  selectHtml += '<select onclick="top.attendance.renderStudent(value)" size="30" name="students" multiple>';
+$.each( student_attendances, function( index, value ) {
+
+    selectHtml += '<option value="' + value[0] + '">' + value[1] + '</option>';
+});
+selectHtml += '</select>';
+
+$('body').html( selectHtml );
+</script>
+
+<div id="students"> </div>
+</body>
